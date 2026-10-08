@@ -1,0 +1,4 @@
+allowBuilds:
+  esbuild: set this to true or false
+overrides:
+  highlight.js: 10.7.0

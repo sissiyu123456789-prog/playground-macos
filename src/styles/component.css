@@ -1,0 +1,251 @@
+/* --------- Login --------- */
+
+.login input::placeholder {
+  @apply text-white;
+}
+
+/* --------- spotlight --------- */
+
+.spotlight {
+  @apply fixed z-20 h-max top-1/4 -mt-16 w-165 -ml-82.5 left-1/2 rounded-lg backdrop-blur-2xl shadow-2xl shadow-black/40 bg-c-100/80 border border-menu;
+}
+
+.spotlight input::placeholder {
+  @apply text-c-black/40;
+}
+
+.spotlight .spotlight-type {
+  @apply relative hstack pl-2.5 py-2 text-xs leading-none text-c-500 font-medium;
+}
+
+@media (max-width: 639px) {
+  .spotlight {
+    @apply w-full ml-0 left-0;
+  }
+}
+
+/* --------- app window --------- */
+
+.window-bound {
+  width: 300%;
+  height: 200%;
+  left: -100%;
+}
+
+.innner-window {
+  height: calc(100% - 1.5rem);
+}
+
+.safari-content {
+  height: calc(100% - 2rem);
+}
+
+.wechat-card {
+  background: #303030;
+  border-radius: 12px;
+}
+
+.wechat-close {
+  @apply absolute rounded-full;
+  top: 18px;
+  left: 15px;
+  width: 12px;
+  height: 12px;
+  background: #ff5f57;
+  cursor: pointer;
+}
+
+.wechat-close-x {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  color: #6f1c18;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  transform: translateY(-1.2px) scale(1.5);
+  transition: opacity 120ms ease;
+}
+
+.wechat-close:hover .wechat-close-x {
+  opacity: 1;
+}
+
+.wechat-phone {
+  @apply absolute left-0 bottom-0 w-full;
+  height: 22%;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.wechat-phone-tooltip {
+  @apply absolute left-1/2 rounded-md bg-c-300/90 px-3 py-1 text-sm c-black;
+  /* Sit 4px above the top edge of the phone label below. */
+  bottom: calc(50% + 27px);
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: auto;
+  white-space: nowrap;
+  box-shadow: hsla(0deg, 0%, 0%, 20%) 0px 1px 5px 2px;
+  transition: opacity 120ms ease;
+}
+
+.wechat-phone-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(210, 216, 226, .9);
+}
+
+.wechat-phone:hover .wechat-phone-tooltip {
+  opacity: 1;
+}
+
+.wechat-toast {
+  @apply absolute left-1/2 bottom-1/2 rounded-md px-3 py-1 text-sm;
+  transform: translate(-50%, 50%);
+  color: white;
+  background: rgba(20, 20, 24, .82);
+  pointer-events: none;
+}
+
+.askme-window {
+  display: flex;
+  flex-direction: column;
+  color: rgba(30, 35, 45, 0.9);
+  background: linear-gradient(145deg, rgba(255,255,255,.65), rgba(226,235,248,.34));
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 0;
+  overflow: hidden;
+}
+.askme-header { @apply h-16 px-5 flex items-center gap-3; background: transparent; }
+.askme-avatar { width: 30px; height: 30px; border-radius: 22%; object-fit: cover; box-shadow: 0 4px 14px rgba(77,71,168,.25); }
+.askme-messages { @apply flex-1 overflow-y-auto p-5; display: flex; flex-direction: column; gap: 12px; }
+.askme-message { max-width: 78%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.45; box-shadow: 0 4px 15px rgba(50,60,90,.08); }
+.askme-message.assistant { align-self: flex-start; background: rgba(255,255,255,.72); border-bottom-left-radius: 5px; }
+.askme-message.user { align-self: flex-end; color: #fff; background: #4E9BF7; border-bottom-right-radius: 5px; }
+.askme-composer { @apply m-4 flex items-center gap-2; padding: 6px 6px 6px 14px; background: rgba(255,255,255,.58); border: 1px solid rgba(255,255,255,.78); border-radius: 18px; box-shadow: inset 0 1px 2px rgba(255,255,255,.5); }
+.askme-composer input { flex: 1; min-width: 0; outline: none; background: transparent; color: inherit; font-size: 14px; }
+.askme-composer button { @apply size-8 flex-center rounded-full; color: white; background: #4E9BF7; }
+
+.photo-window { display: flex; flex-direction: column; background: #fff; }
+.photo-toolbar { @apply h-14 px-5 flex items-center gap-3; color: #31394d; background: rgba(255,255,255,.34); }
+.photo-toolbar-hint { font-size: 12px; opacity: .55; }
+.photo-feed { @apply flex-1 overflow-y-auto p-5; columns: 1; column-gap: 0; overflow-x: hidden; }
+.photo-tile { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; margin: 0 0 12px; break-inside: avoid; border: 0; border-radius: 14px; cursor: zoom-in; box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 6px 16px rgba(58,66,100,.12); }
+.photo-tall { aspect-ratio: 3 / 4; }
+.photo-tile-sky { background: linear-gradient(145deg, #c9e5f6, #718bd2); }
+.photo-tile-coral { background: linear-gradient(145deg, #ffb9a4, #db6b77); }
+.photo-tile-lilac { background: linear-gradient(145deg, #e1cdf6, #8b72c4); }
+.photo-tile-mint { background: linear-gradient(145deg, #c7f1db, #5cae9b); }
+.photo-tile-sun { background: linear-gradient(145deg, #ffe8a0, #eeae4b); }
+.photo-tile-blue { background: linear-gradient(145deg, #a9d8ff, #397bc4); }
+.photo-tile-peach { background: linear-gradient(145deg, #ffd2c5, #e79a86); }
+.photo-tile-indigo { background: linear-gradient(145deg, #b7c1f4, #5c63a9); }
+.photo-lightbox { @apply absolute inset-0 flex-center; z-index: 5; background: rgba(30,35,50,.45); backdrop-filter: blur(8px); }
+.photo-preview { width: min(72%, 520px); height: min(62%, 520px); aspect-ratio: auto; cursor: default; }
+.photo-lightbox-close { @apply absolute top-4 right-4 size-8 rounded-full flex-center; color: #fff; background: rgba(30,35,50,.72); font-size: 22px; }
+.photo-lightbox-prev, .photo-lightbox-next { @apply absolute top-1/2 size-10 rounded-full flex-center; transform: translateY(-50%); color: #fff; background: rgba(30,35,50,.72); font-size: 30px; line-height: 1; }
+.photo-lightbox-prev { left: 5%; }
+.photo-lightbox-next { right: 5%; }
+.photo-thumbnails { @apply absolute bottom-5 left-1/2 flex items-center gap-3 overflow-hidden; width: min(72%, 520px); height: 58px; transform: translateX(-50%); mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
+.photo-thumb { flex: 0 0 54px; width: 54px; height: 48px; border: 0; border-radius: 8px; opacity: .75; transition: transform 150ms ease, opacity 150ms ease; }
+.photo-thumb.is-selected { transform: scale(1.3); opacity: 1; z-index: 1; }
+.bear-link-text { color: inherit; text-decoration: none; }
+
+.traffic-lights .icon {
+  @apply hidden;
+}
+
+.traffic-lights:hover .icon {
+  @apply block;
+}
+
+/* --------- dock --------- */
+
+.dock ul {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.17);
+}
+
+#dock-wechat > img,
+#dock-typora > img,
+#dock-photo > img {
+  border-radius: 22%;
+  object-fit: cover;
+  box-sizing: border-box;
+  padding: 7%;
+}
+
+.dock li .tooltip {
+  @apply hidden;
+  top: calc(-100% - 10px);
+}
+
+.dock li:hover .tooltip {
+  @apply block;
+  box-shadow: hsla(0deg, 0%, 0%, 20%) 0px 1px 5px 2px, 0 0 0 0 white;
+}
+
+/* --------- slider --------- */
+
+.slider .rangeslider {
+  @apply bg-c-300 w-full h-7 shadow-none m-0 rounded-r-full border-t border-r border-b border-transparent;
+}
+
+.slider .rangeslider .rangeslider__fill {
+  @apply bg-c-100 shadow-none rounded-none;
+}
+
+.slider .rangeslider .rangeslider__handle {
+  @apply border border-c-300 outline-none size-7 text-white bg-white;
+  box-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
+}
+
+.slider .rangeslider .rangeslider__handle::after {
+  @apply hidden;
+}
+
+
+/*
+  Credits: W3 Schools: https://www.w3schools.com/howto/howto_css_switch.asp
+*/
+
+/* The switch - the box around the slider */
+.switch-toggle {
+  @apply relative inline-block h-5.5 w-9.5;
+}
+
+/* Hide default HTML checkbox */
+.switch-toggle input {
+  @apply size-0 opacity-0;
+}
+
+/* The slider */
+.switch-toggle .slider-toggle {
+  @apply absolute rounded-full bg-gray-400/50 inset-0 cursor-pointer duration-300;
+}
+
+.switch-toggle .slider-toggle:before {
+  @apply content-[""] absolute rounded-full bg-white bottom-0.5 left-0.5 size-4.5 duration-300;
+}
+
+.switch-toggle input:checked + .slider-toggle {
+  @apply bg-blue-500;
+}
+
+.switch-toggle input:checked + .slider-toggle:before {
+  @apply translate-x-4;
+}
+
+.switch-toggle input:focus + .slider-toggle {
+  box-shadow: 0 0 1px #3b82f6;
+}

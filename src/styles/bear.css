@@ -1,0 +1,139 @@
+.bear .markdown a,
+.bear .markdown .bear-link-text {
+  color: inherit;
+  text-decoration: none;
+}
+.bear .markdown .bear-resume-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.bear .markdown ul > li::marker {
+  color: inherit;
+}
+
+.bear .markdown h1,
+.bear .markdown h2,
+.bear .markdown h3,
+.bear .markdown h4 {
+  @apply font-bold relative text-c-800;
+}
+
+.bear .markdown h1,
+.bear .markdown h2,
+.bear .markdown h3,
+.bear .markdown h4 {
+  @apply mt-7;
+}
+
+.bear .markdown h1::before,
+.bear .markdown h2::before,
+.bear .markdown h3::before,
+.bear .markdown h4::before {
+  @apply absolute text-sm text-c-400 -left-7 bottom-1;
+}
+
+.bear .markdown h1 {
+  @apply text-3xl;
+}
+
+.bear .markdown h1::before {
+  content: "H1";
+}
+
+.bear .markdown h2 {
+  @apply text-2xl;
+}
+
+.bear .markdown h2::before {
+  content: "H2";
+}
+
+.bear .markdown h3 {
+  @apply text-xl;
+}
+
+.bear .markdown h3::before {
+  content: "H3";
+}
+
+.bear .markdown h3 {
+  @apply text-xl;
+}
+
+.bear .markdown h4 {
+  @apply text-lg;
+}
+
+.bear .markdown h4::before {
+  content: "H4";
+}
+
+.bear .markdown p {
+  @apply mt-6;
+}
+
+.bear .markdown h2 + p,
+.bear .markdown h3 + p,
+.bear .markdown h4 + p {
+  @apply mt-4;
+}
+
+.bear .markdown ul,
+.bear .markdown ol {
+  @apply mt-2 pl-5;
+}
+
+.bear .markdown ul {
+  @apply list-disc;
+}
+
+.bear .markdown ul > li::marker {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.bear .markdown ol {
+  @apply list-decimal;
+}
+
+.bear .markdown li p {
+  @apply m-0 mb-2;
+}
+
+.bear .markdown code {
+  @apply text-sm border border-c-300 rounded py-0.5 px-1 bg-c-50;
+}
+
+.bear .markdown pre {
+  @apply mt-2 text-sm;
+}
+
+.bear .markdown pre code {
+  @apply text-sm bg-transparent border-none p-0;
+}
+
+.bear .markdown pre div {
+  @apply border border-c-300 rounded;
+}
+
+.bear .markdown .token {
+	background: transparent !important;
+}
+
+.bear .markdown img {
+  @apply inline-block;
+}
+
+.bear .markdown table {
+  @apply mt-4 block w-full overflow-auto;
+}
+
+.bear .markdown table td,
+.bear .markdown table th {
+  @apply px-3 py-2 border border-c-300;
+}
+
+.bear .markdown table tr {
+  @apply border-t border-gray-300 bg-transparent;
+}
