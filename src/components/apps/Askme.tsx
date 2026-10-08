@@ -7,6 +7,8 @@ interface Message {
 }
 
 const privacyPattern = /电话|手机|手机号|微信号|邮箱|邮件|住址|地址|家庭|家人|婚姻|恋爱|对象|工资|薪资|收入|身份证|隐私/;
+const aiTopicPattern = /大模型|语言模型|LLM|GPT|RAG|检索增强|Agent|智能体|AI|人工智能|机器学习|深度学习|生成式|多模态|AI产品|产品设计|面试|模型趋势|提示词|评测|推理|微调|向量数据库/i;
+const casualPattern = /天气|下雨|气温|温度|吃什么|电影|音乐|星座|旅游|笑话/;
 const replyTo = (value: string, turn: number) => {
   if (privacyPattern.test(value)) return privacyReplies[turn % privacyReplies.length];
   const normalized = value.toLowerCase().replace(/\s/g, "");
@@ -15,6 +17,8 @@ const replyTo = (value: string, turn: number) => {
     .sort((a, b) => b.score - a.score)[0];
   if (match && match.score > 0) return match.entry.answer;
   if (/你好|嗨|hello/.test(normalized)) return "你好呀，我们聊聊吧～";
+  if (aiTopicPattern.test(value)) return "这是个很好的 AI 产品设计问题。我可以从用户价值、技术能力、交互体验和落地指标几个方面来分析。当前对话暂时无法连接大模型，请稍后再试，我也可以继续结合我的项目经历展开。";
+  if (!casualPattern.test(value)) return "这个问题我可以结合 AI 产品设计和我的项目经历来聊～";
   return unrelatedReplies[turn % unrelatedReplies.length];
 };
 

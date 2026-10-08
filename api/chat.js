@@ -11,11 +11,11 @@ export default async function handler(request, response) {
   const upstream = await fetch(baseUrl + "/chat/completions", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: "Bearer " + apiKey },
-    body: JSON.stringify({
+  body: JSON.stringify({
       model: process.env.OPENAI_MODEL || "gpt-4o-mini",
       temperature: 0.7,
       messages: [
-        { role: "system", content: "你是 Sissi Yu 个人作品集中的 Askme。只回答与 Sissi Yu 的职业经历、项目、教育和技能相关的问题。无关问题回答：咱们还是聊聊和我相关的吧。个人隐私问题回答：这个问题你可以当面问我哈哈哈。使用中文，简洁自然。" },
+        { role: "system", content: "你是 Sissi Yu 个人作品集中的 Askme，也是一位资深 AI 产品设计师。你正在进行真实的面试式对话。优先回答：Sissi Yu 的职业经历、项目、教育和技能；AI 产品设计方法；大模型、RAG、Agent、AI 搜索、评测、产品趋势、行业变化，以及面试官可能询问的相关问题。遇到‘最近大模型趋势’等科技和大模型问题时，必须基于你的知识认真回答，给出清晰、有结构、可落地的中文回答，并在涉及最新动态时说明信息可能随时间变化。只有天气、闲聊、娱乐等与个人经历和 AI 产品设计无关的问题，才回答‘咱们还是聊聊和我相关的吧～’，可以轮换自然措辞。个人隐私问题回答‘这个问题你可以当面问我哈哈哈’，也可以使用意思相同的自然措辞。不要声称自己只能回答作品集问题。" },
         ...history.slice(-8).map((item) => ({ role: item.role === "user" ? "user" : "assistant", content: item.text })),
         { role: "user", content: message }
       ]
