@@ -5,7 +5,7 @@ export default async function handler(request, response) {
   const { message, history = [] } = request.body || {};
   if (!message) return response.status(400).json({ error: "Message is required" });
   const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) return response.status(200).json({ reply: "咱们还是聊聊和我相关的吧～" });
+  if (!apiKey) return response.status(200).json({ reply: "本地还没有配置大模型 API key。请在启动 API 服务前设置 OPENAI_API_KEY；配置完成后，我会直接回答大模型趋势、AI 产品设计和面试问题。" });
   if (privacyPattern.test(message)) return response.status(200).json({ reply: "这个问题你可以当面问我哈哈哈" });
   const baseUrl = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
   const upstream = await fetch(baseUrl + "/chat/completions", {
