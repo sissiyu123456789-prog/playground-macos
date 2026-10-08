@@ -62,4 +62,5 @@
     "vite": "^5.2.10"
   },
   "packageManager": "pnpm@9.0.6"
+  ,"config": {"legacy-peer-deps": true}
 }
