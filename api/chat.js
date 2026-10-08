@@ -21,7 +21,11 @@ export default async function handler(request, response) {
       ]
     })
   });
-  if (!upstream.ok) return response.status(502).json({ error: "Upstream chat failed" });
+  if (!upstream.ok) {
+    const detail = await upstream.text();
+    console.error("OpenAI upstream error", upstream.status, detail);
+    return response.status(502).json({ error: "Upstream chat failed" });
+  }
   const data = await upstream.json();
   return response.status(200).json({ reply: data.choices?.[0]?.message?.content || "咱们还是聊聊和我相关的吧" });
 }
