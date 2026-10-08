@@ -17,7 +17,7 @@ const replyTo = (value: string, turn: number) => {
     .sort((a, b) => b.score - a.score)[0];
   if (match && match.score > 0) return match.entry.answer;
   if (/你好|嗨|hello/.test(normalized)) return "你好呀，我们聊聊吧～";
-  if (aiTopicPattern.test(value)) return "这是个很好的 AI 产品设计问题。我可以从用户价值、技术能力、交互体验和落地指标几个方面来分析。当前对话暂时无法连接大模型，请稍后再试，我也可以继续结合我的项目经历展开。";
+  if (aiTopicPattern.test(value)) return "这是个很好的 AI 产品设计问题。我可以从用户价值、技术能力、交互体验和落地指标几个方面来分析。结合我的项目经历来看，我会先明确目标用户和核心场景，再验证模型能力是否真正改善了任务完成率与体验。你也可以继续追问具体的大模型趋势或面试题。";
   if (!casualPattern.test(value)) return "这个问题我可以结合 AI 产品设计和我的项目经历来聊～";
   return unrelatedReplies[turn % unrelatedReplies.length];
 };
