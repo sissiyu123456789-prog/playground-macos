@@ -12,7 +12,10 @@ export default function WeChat({ onClose }: WeChatProps) {
   };
 
   return (
-    <div className="wechat-card wechat-drag relative size-full overflow-hidden" style={{ height: "100%", width: "100%" }}>
+    <div
+      className="wechat-card wechat-drag relative size-full overflow-hidden"
+      style={{ height: "100%", width: "100%" }}
+    >
       <img
         src="img/ui/wechat-qr.png"
         alt="WeChat QR code"
@@ -20,7 +23,12 @@ export default function WeChat({ onClose }: WeChatProps) {
         className="block size-full"
         style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
       />
-      <button className="wechat-close" type="button" aria-label="Close WeChat" onClick={onClose}>
+      <button
+        className="wechat-close"
+        type="button"
+        aria-label="Close WeChat"
+        onClick={onClose}
+      >
         <span className="wechat-close-x">×</span>
       </button>
       <button

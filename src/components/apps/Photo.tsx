@@ -13,8 +13,12 @@ const tiles = [
 
 export default function Photo() {
   const [selected, setSelected] = useState<number | null>(null);
-  const previous = () => setSelected((value) => value === null ? null : (value + tiles.length - 1) % tiles.length);
-  const next = () => setSelected((value) => value === null ? null : (value + 1) % tiles.length);
+  const previous = () =>
+    setSelected((value) =>
+      value === null ? null : (value + tiles.length - 1) % tiles.length
+    );
+  const next = () =>
+    setSelected((value) => (value === null ? null : (value + 1) % tiles.length));
   return (
     <div className="photo-window size-full">
       <div className="photo-toolbar">
@@ -34,9 +38,36 @@ export default function Photo() {
       </div>
       {selected !== null && (
         <div className="photo-lightbox" onClick={() => setSelected(null)}>
-          <button className="photo-lightbox-close" type="button" aria-label="Close photo" onClick={() => setSelected(null)}>×</button>
-          <button className="photo-lightbox-prev" type="button" aria-label="Previous photo" onClick={(event) => { event.stopPropagation(); previous(); }}>‹</button>
-          <button className="photo-lightbox-next" type="button" aria-label="Next photo" onClick={(event) => { event.stopPropagation(); next(); }}>›</button>
+          <button
+            className="photo-lightbox-close"
+            type="button"
+            aria-label="Close photo"
+            onClick={() => setSelected(null)}
+          >
+            ×
+          </button>
+          <button
+            className="photo-lightbox-prev"
+            type="button"
+            aria-label="Previous photo"
+            onClick={(event) => {
+              event.stopPropagation();
+              previous();
+            }}
+          >
+            ‹
+          </button>
+          <button
+            className="photo-lightbox-next"
+            type="button"
+            aria-label="Next photo"
+            onClick={(event) => {
+              event.stopPropagation();
+              next();
+            }}
+          >
+            ›
+          </button>
           <div
             className={`photo-preview photo-tile ${tiles[selected][0]}`}
             onClick={(event) => event.stopPropagation()}

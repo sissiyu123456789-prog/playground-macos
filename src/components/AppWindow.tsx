@@ -126,11 +126,17 @@ const Window = (props: WindowProps) => {
       width: Math.min(winWidth, state.width),
       height: Math.min(winHeight, state.height),
       x: winWidth + (winWidth - Math.min(winWidth, state.width)) / 2 + (props.x || 0),
-      y: (winHeight - Math.min(winHeight, state.height) - dockSize - minMarginY) / 2 + (props.y || 0)
+      y:
+        (winHeight - Math.min(winHeight, state.height) - dockSize - minMarginY) / 2 +
+        (props.y || 0)
     });
   }, [winWidth, winHeight]);
 
-  const round = props.frameless ? "rounded-[12px]" : props.max ? "rounded-none" : "rounded-lg";
+  const round = props.frameless
+    ? "rounded-[12px]"
+    : props.max
+      ? "rounded-none"
+      : "rounded-lg";
   const minimized = props.min
     ? "opacity-0 invisible transition-opacity duration-300"
     : "";
@@ -214,7 +220,12 @@ const Window = (props: WindowProps) => {
           <span className="font-semibold text-c-700">{props.title}</span>
         </div>
       )}
-      <div className={`innner-window w-full overflow-y-hidden ${props.frameless ? "h-full frameless-drag" : ""}`} style={props.frameless ? { height: "100%" } : undefined}>{children}</div>
+      <div
+        className={`innner-window w-full overflow-y-hidden ${props.frameless ? "h-full frameless-drag" : ""}`}
+        style={props.frameless ? { height: "100%" } : undefined}
+      >
+        {children}
+      </div>
     </Rnd>
   );
 };
