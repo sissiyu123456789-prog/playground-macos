@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智能画布 · 方法论全景图</title>
+<style>
+  body{margin:0;background:#f5f7f6;font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;padding:24px;}
+  .wrap{max-width:1240px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(28,61,46,.08);padding:20px 12px;}
+  h1{font-size:20px;color:#1C3D2E;margin:4px 8px 2px;}
+  .sub{font-size:13px;color:#778B82;margin:0 8px 14px;}
+  svg{width:100%;height:auto;display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AIGC 生成式内容系统化提质 · 方法论全景图</h1>
+  <p class="sub">问题 → 目标 → 质量梯度评级 → 三步策略 → 规范与组件支撑 → 价值验证</p>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" font-family="Noto Sans SC, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1C3D2E"/>
+    </marker>
+    <marker id="arrGray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#778B82"/>
+    </marker>
+  </defs>
+  <rect x="40" y="24" width="250" height="104" rx="14" fill="#DDE2E0" stroke="#778B82" stroke-width="1.5"/>
+  <text x="60" y="52" font-size="15" font-weight="700" fill="#1C3D2E">现状问题</text>
+  <text x="60" y="78" font-size="13" fill="#33463C">复杂信息呈现 · 低质混乱</text>
+  <text x="60" y="102" font-size="12.5" fill="#55675D">层级混乱 / 纯文本 / 开发周期长</text>
+  <line x1="290" y1="76" x2="330" y2="76" stroke="#1C3D2E" stroke-width="2" marker-end="url(#arrMain)"/>
+  <rect x="332" y="24" width="848" height="104" rx="14" fill="#EDF2EE" stroke="#1C3D2E" stroke-width="1.5"/>
+  <text x="352" y="50" font-size="15" font-weight="700" fill="#1C3D2E">项目目标：三个方向</text>
+  <rect x="356" y="64" width="252" height="46" rx="10" fill="#1C3D2E"/>
+  <text x="482" y="82" font-size="13.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">高效易读</text>
+  <text x="482" y="101" font-size="11.5" fill="#DDE2E0" text-anchor="middle">标准 Markdown · 层级清晰</text>
+  <rect x="628" y="64" width="252" height="46" rx="10" fill="#1C3D2E"/>
+  <text x="754" y="82" font-size="13.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">惊喜美观</text>
+  <text x="754" y="101" font-size="11.5" fill="#DDE2E0" text-anchor="middle">通用 / 多垂类模板搭建</text>
+  <rect x="900" y="64" width="252" height="46" rx="10" fill="#1C3D2E"/>
+  <text x="1026" y="82" font-size="13.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">智能生产</text>
+  <text x="1026" y="101" font-size="11.5" fill="#DDE2E0" text-anchor="middle">AI 组件 · 缩短人工耗时</text>
+  <rect x="40" y="156" width="250" height="96" rx="14" fill="#DDE2E0" stroke="#778B82" stroke-width="1.5"/>
+  <text x="60" y="184" font-size="15" font-weight="700" fill="#1C3D2E">质量梯度评级</text>
+  <text x="60" y="210" font-size="12" fill="#33463C">模型能力短期难提升</text>
+  <text x="60" y="232" font-size="12" fill="#33463C">→ 梯度评级 → 分阶段推进</text>
+  <line x1="290" y1="204" x2="330" y2="204" stroke="#1C3D2E" stroke-width="2" marker-end="url(#arrMain)"/>
+  <g>
+    <rect x="332" y="172" width="118" height="64" rx="10" fill="#E3EAE6" stroke="#8FAA9B" stroke-width="1"/>
+    <text x="391" y="200" font-size="15" font-weight="700" fill="#1C3D2E" text-anchor="middle">0分</text>
+    <text x="391" y="221" font-size="12" fill="#33463C" text-anchor="middle">排版混乱</text>
+  </g>
+  <g>
+    <rect x="474" y="172" width="118" height="64" rx="10" fill="#D3DCD6" stroke="#8FAA9B" stroke-width="1"/>
+    <text x="533" y="200" font-size="15" font-weight="700" fill="#1C3D2E" text-anchor="middle">1分</text>
+    <text x="533" y="221" font-size="12" fill="#33463C" text-anchor="middle">基础罗列</text>
+  </g>
+  <g>
+    <rect x="616" y="172" width="118" height="64" rx="10" fill="#B6C6BC" stroke="#8FAA9B" stroke-width="1"/>
+    <text x="675" y="200" font-size="15" font-weight="700" fill="#1C3D2E" text-anchor="middle">2分</text>
+    <text x="675" y="221" font-size="12" fill="#33463C" text-anchor="middle">信息降噪</text>
+  </g>
+  <g>
+    <rect x="758" y="172" width="118" height="64" rx="10" fill="#8FAA9B" stroke="#5E826E" stroke-width="1"/>
+    <text x="817" y="200" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">3分</text>
+    <text x="817" y="221" font-size="12" fill="#FFFFFF" text-anchor="middle">层级清晰</text>
+  </g>
+  <g>
+    <rect x="900" y="172" width="118" height="64" rx="10" fill="#5E826E" stroke="#1C3D2E" stroke-width="1"/>
+    <text x="959" y="200" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">5分</text>
+    <text x="959" y="221" font-size="12" fill="#F0F5F2" text-anchor="middle">风格统一</text>
+  </g>
+  <g>
+    <rect x="1042" y="172" width="118" height="64" rx="10" fill="#1C3D2E"/>
+    <text x="1101" y="200" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">10分</text>
+    <text x="1101" y="221" font-size="12" fill="#DDE2E0" text-anchor="middle">表达准确</text>
+  </g>
+  <line x1="450" y1="204" x2="472" y2="204" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <line x1="592" y1="204" x2="614" y2="204" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <line x1="734" y1="204" x2="756" y2="204" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <line x1="876" y1="204" x2="898" y2="204" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <line x1="1018" y1="204" x2="1040" y2="204" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <g>
+    <rect x="40" y="292" width="360" height="268" rx="14" fill="#F4F7F5" stroke="#1C3D2E" stroke-width="1.5"/>
+    <rect x="40" y="292" width="360" height="48" rx="14" fill="#1C3D2E"/>
+    <rect x="40" y="316" width="360" height="24" fill="#1C3D2E"/>
+    <text x="220" y="322" font-size="14.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Phase 1 · 建立运营评估标准</text>
+    <text x="60" y="360" font-size="12.5" font-weight="700" fill="#4E7A63">及格线：防止粗暴上线（0→3分）</text>
+    <rect x="60" y="382" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="76" y="404" font-size="12.5" fill="#33463C">粗颗粒度 页面展示原则</text>
+    <rect x="60" y="428" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="76" y="450" font-size="12.5" fill="#33463C">细颗粒度 评分体系搭建</text>
+    <rect x="60" y="474" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="76" y="496" font-size="12.5" fill="#33463C">据此完成质量打分</text>
+    <rect x="60" y="520" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="76" y="542" font-size="12.5" fill="#33463C">首批 P0 问题治理</text>
+  </g>
+  <g>
+    <rect x="430" y="292" width="360" height="268" rx="14" fill="#F4F7F5" stroke="#1C3D2E" stroke-width="1.5"/>
+    <rect x="430" y="292" width="360" height="48" rx="14" fill="#1C3D2E"/>
+    <rect x="430" y="316" width="360" height="24" fill="#1C3D2E"/>
+    <text x="610" y="322" font-size="14.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Phase 2 · 提升视觉品质感</text>
+    <text x="450" y="360" font-size="12.5" font-weight="700" fill="#4E7A63">品质线：提升低质内容（3→5分）</text>
+    <rect x="450" y="382" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="466" y="404" font-size="12.5" fill="#33463C">典型 case 收集与遍历</text>
+    <rect x="450" y="428" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="466" y="450" font-size="12.5" fill="#33463C">典型 case 重新设计</text>
+    <rect x="450" y="474" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="466" y="496" font-size="12.5" fill="#33463C">建立基础通用设计规范</text>
+    <rect x="450" y="520" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="466" y="542" font-size="12.5" fill="#33463C">AI 跑通基础规范</text>
+  </g>
+  <g>
+    <rect x="820" y="292" width="360" height="268" rx="14" fill="#F4F7F5" stroke="#1C3D2E" stroke-width="1.5"/>
+    <rect x="820" y="292" width="360" height="48" rx="14" fill="#1C3D2E"/>
+    <rect x="820" y="316" width="360" height="24" fill="#1C3D2E"/>
+    <text x="1000" y="322" font-size="14.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Phase 3 · 精细化行业组件标准</text>
+    <text x="840" y="360" font-size="12.5" font-weight="700" fill="#4E7A63">卓越线：更加专业准确（5→10分）</text>
+    <rect x="840" y="382" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="856" y="404" font-size="12.5" fill="#33463C">典型组件设计</text>
+    <rect x="840" y="428" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="856" y="450" font-size="12.5" fill="#33463C">组件结构化拆解</text>
+    <rect x="840" y="474" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="856" y="496" font-size="12.5" fill="#33463C">组件边界规则明确</text>
+    <rect x="840" y="520" width="320" height="34" rx="8" fill="#FFFFFF" stroke="#BBC5C0" stroke-width="1"/>
+    <text x="856" y="542" font-size="12.5" fill="#33463C">组件实验迭代优化</text>
+  </g>
+  <line x1="400" y1="430" x2="428" y2="430" stroke="#1C3D2E" stroke-width="2" marker-end="url(#arrMain)"/>
+  <line x1="790" y1="430" x2="818" y2="430" stroke="#1C3D2E" stroke-width="2" marker-end="url(#arrMain)"/>
+  <line x1="220" y1="572" x2="1000" y2="572" stroke="#778B82" stroke-width="1.5"/>
+  <line x1="320" y1="572" x2="320" y2="600" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <line x1="900" y1="572" x2="900" y2="600" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <rect x="40" y="606" width="560" height="90" rx="14" fill="#EDF2EE" stroke="#1C3D2E" stroke-width="1.5"/>
+  <text x="60" y="636" font-size="14.5" font-weight="700" fill="#1C3D2E">通用基础规范</text>
+  <text x="60" y="662" font-size="12" fill="#33463C">Markdown 统一视觉语言 · 主题色多元场景表达</text>
+  <text x="60" y="684" font-size="12" fill="#33463C">场景明确 · 规则精简 · 命名规范</text>
+  <rect x="620" y="606" width="560" height="90" rx="14" fill="#EDF2EE" stroke="#1C3D2E" stroke-width="1.5"/>
+  <text x="640" y="636" font-size="14.5" font-weight="700" fill="#1C3D2E">组件体系</text>
+  <text x="640" y="662" font-size="12" fill="#33463C">13 个垂类 · 46 个组件 · 112 个变体</text>
+  <text x="640" y="684" font-size="12" fill="#33463C">结构化拆解 + 边界规则明确</text>
+  <line x1="220" y1="712" x2="1000" y2="712" stroke="#778B82" stroke-width="1.5"/>
+  <line x1="220" y1="712" x2="220" y2="726" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <line x1="610" y1="712" x2="610" y2="726" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <line x1="1000" y1="712" x2="1000" y2="726" stroke="#778B82" stroke-width="1.5" marker-end="url(#arrGray)"/>
+  <g>
+    <rect x="40" y="726" width="360" height="100" rx="14" fill="#1C3D2E"/>
+    <text x="60" y="756" font-size="14.5" font-weight="700" fill="#FFFFFF">向内提升价值</text>
+    <text x="60" y="782" font-size="12" fill="#DDE2E0">Top1 问答卡 · 金融/教育/信息</text>
+    <text x="60" y="806" font-size="12" fill="#FFFFFF">活跃率 ↑3.46% · 换 query ↓6.72%</text>
+  </g>
+  <g>
+    <rect x="430" y="726" width="360" height="100" rx="14" fill="#1C3D2E"/>
+    <text x="450" y="756" font-size="14.5" font-weight="700" fill="#FFFFFF">向外赋能场景</text>
+    <text x="450" y="782" font-size="12" fill="#DDE2E0">内流长图文 · AI 旅行/测评/观点</text>
+    <text x="450" y="806" font-size="12" fill="#FFFFFF">有点比 ↑6.64% · 停留 ↑8.41%</text>
+  </g>
+  <g>
+    <rect x="820" y="726" width="360" height="100" rx="14" fill="#1C3D2E"/>
+    <text x="840" y="756" font-size="14.5" font-weight="700" fill="#FFFFFF">效能提升</text>
+    <text x="840" y="782" font-size="12" fill="#DDE2E0">Figma 插件 · AI 工作流 × Vibecoding</text>
+    <text x="840" y="806" font-size="12" fill="#FFFFFF">25 分钟/图 → 10 秒/图</text>
+  </g>
+  </svg>
+  <p class="sub" style="margin-top:10px;">数据来源：项目演示文档《2. 智能画布.pdf》｜效果数据为项目自报口径</p>
+</div>
+</body>
+</html>

@@ -69,7 +69,7 @@ const Sidebar = ({ state, onTake, onSave, onSelect }: SidebarProps) => {
           onClick={onTake}
         >
           <span className="i-ion:ios-videocam text-base" />
-          <span>{state.curImage ? "Retake" : "Take a Picture"}</span>
+          <span>{state.curImage ? "Retake" : "Snap with me"}</span>
         </button>
         <button
           className={`flex-center space-x-1 w-full py-1 text-white rounded-md bg-stone-500 ${
@@ -153,7 +153,13 @@ const FaceTime = () => {
             }}
           />
         ) : (
-          state.curImage && <img className="relative z-0 h-full w-full object-cover" src={state.curImage} alt="your-image" />
+          state.curImage && (
+            <img
+              className="relative z-0 h-full w-full object-cover"
+              src={state.curImage}
+              alt="your-image"
+            />
+          )
         )}
       </div>
     </div>

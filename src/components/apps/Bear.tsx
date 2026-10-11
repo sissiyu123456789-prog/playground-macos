@@ -164,14 +164,30 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
     <div className="markdown w-2/3 mx-auto px-2 py-6 text-c-700">
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[
-          rehypeKatex
-        ]}
+        rehypePlugins={[rehypeKatex]}
         components={{
           ...Highlighter(dark as boolean),
           a: ({ children, href }: { children?: React.ReactNode; href?: string }) =>
-            (href === "files/resume.pdf" || href === "/files/resume.pdf") ? (
-              <a className="bear-resume-link" href={href} target="_blank" rel="noreferrer">
+            href === "files/resume.pdf" || href === "/files/resume.pdf" ? (
+              <button
+                className="bear-resume-link"
+                type="button"
+                onMouseDown={(event) => event.stopPropagation()}
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  window.open("/files/resume.pdf", "_blank", "noopener,noreferrer");
+                }}
+              >
+                {children}
+              </button>
+            ) : href === "/markdown/aigc-assets/html5_1.html" ? (
+              <a
+                className="bear-resume-link"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {children}
               </a>
             ) : (

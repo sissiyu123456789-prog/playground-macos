@@ -67,7 +67,7 @@
   font-weight: 700;
   line-height: 1;
   text-align: center;
-  transform: translateY(-1.2px) scale(1.5);
+  transform: translateY(-1.7px) scale(1.5);
   transition: opacity 120ms ease;
 }
 
@@ -129,13 +129,42 @@
 }
 .askme-header { @apply h-16 px-5 flex items-center gap-3; background: transparent; }
 .askme-avatar { width: 30px; height: 30px; border-radius: 22%; object-fit: cover; box-shadow: 0 4px 14px rgba(77,71,168,.25); }
-.askme-messages { @apply flex-1 overflow-y-auto p-5; display: flex; flex-direction: column; gap: 12px; }
-.askme-message { max-width: 78%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.45; box-shadow: 0 4px 15px rgba(50,60,90,.08); }
+.askme-messages { @apply flex-1 overflow-y-auto p-4; display: flex; flex-direction: column; gap: 24px; }
+.askme-message { max-width: 78%; padding: 16px; border-radius: 16px; font-size: 14px; line-height: 1.5; box-shadow: 0 4px 15px rgba(50,60,90,.08); }
 .askme-message.assistant { align-self: flex-start; background: rgba(255,255,255,.72); border-bottom-left-radius: 5px; }
 .askme-message.user { align-self: flex-end; color: #fff; background: #4E9BF7; border-bottom-right-radius: 5px; }
-.askme-composer { @apply m-4 flex items-center gap-2; padding: 6px 6px 6px 14px; background: rgba(255,255,255,.58); border: 1px solid rgba(255,255,255,.78); border-radius: 18px; box-shadow: inset 0 1px 2px rgba(255,255,255,.5); }
-.askme-composer input { flex: 1; min-width: 0; outline: none; background: transparent; color: inherit; font-size: 14px; }
+.askme-markdown { min-width: 0; }
+.askme-markdown { line-height: 1.5; }
+.askme-markdown p { margin: 0 0 .65em; }
+.askme-markdown p:last-child { margin-bottom: 0; }
+.askme-markdown h2, .askme-markdown h3 { margin: .25em 0 .45em; font-weight: 700; line-height: 1.5; }
+.askme-markdown h2 { font-size: 1.08em; }
+.askme-markdown h3 { font-size: 1em; }
+.askme-markdown ul, .askme-markdown ol { margin: .55em 0 .7em; padding-left: 1.35em; }
+.askme-markdown ul { list-style: disc; }
+.askme-markdown ul ul { list-style: circle; margin-top: .2em; margin-bottom: .2em; }
+.askme-markdown ol { list-style: decimal; }
+.askme-markdown li { margin: .3em 0; padding-left: .15em; }
+.askme-markdown li::marker { color: #4e9bf7; }
+.askme-markdown blockquote { margin: .55em 0; padding-left: .8em; border-left: 3px solid rgba(78,155,247,.55); opacity: .8; }
+.askme-markdown pre { margin: .6em 0; padding: .7em .8em; overflow-x: auto; border-radius: 9px; color: #e8eefc; background: rgba(25,32,48,.9); font-size: .9em; }
+.askme-markdown code { padding: .12em .3em; border-radius: 4px; background: rgba(80,95,125,.14); font-size: .92em; }
+.askme-markdown pre code { padding: 0; background: transparent; }
+.askme-markdown table { display: block; max-width: 100%; margin: .6em 0; overflow-x: auto; border-collapse: collapse; font-size: .92em; }
+.askme-markdown th, .askme-markdown td { padding: .3em .5em; border: 1px solid rgba(80,95,125,.25); text-align: left; white-space: nowrap; }
+.askme-markdown th { background: rgba(80,95,125,.12); }
+.askme-markdown a { color: #287bd8; text-decoration: underline; }
+.askme-thinking-status { margin: 0 0 .7em; color: rgba(30, 35, 45, .52); font-size: .88em; }
+.askme-thinking-status.is-active { position: relative; display: inline-block; max-width: 100%; overflow: hidden; }
+.askme-thinking-status.is-active::after { content: ""; position: absolute; inset: 0 auto 0 -45%; width: 42%; transform: skewX(-18deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent); animation: askme-sweep 1.8s ease-in-out infinite; pointer-events: none; }
+@keyframes askme-sweep { 0% { left: -45%; } 100% { left: 120%; } }
+.askme-counter { font-size: 10px; opacity: .45; white-space: nowrap; }
+.askme-composer { @apply m-4 flex items-center gap-2; padding: 8px 16px; background: rgba(255,255,255,.58); border: 1px solid rgba(255,255,255,.78); border-radius: 18px; box-shadow: inset 0 1px 2px rgba(255,255,255,.5); }
+.askme-composer input { flex: 1; min-width: 0; outline: none; background: transparent; color: inherit; font-size: 14px; line-height: 1.5; }
 .askme-composer button { @apply size-8 flex-center rounded-full; color: white; background: #4E9BF7; }
+@media (prefers-reduced-motion: reduce) {
+  .askme-thinking-status.is-active::after { animation: none; display: none; }
+}
 
 .photo-window { display: flex; flex-direction: column; background: #fff; }
 .photo-toolbar { @apply h-14 px-5 flex items-center gap-3; color: #31394d; background: rgba(255,255,255,.34); }
