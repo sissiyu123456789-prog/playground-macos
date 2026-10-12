@@ -72,7 +72,7 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
             } ${cur === index ? "" : "hover:bg-gray-600"}`}
             onClick={() => setMidBar(item.md, index)}
           >
-            <span className={item.icon} />
+            <span className={`bear-sidebar-icon ${item.icon}`} aria-hidden="true" />
             <span className="ml-2">{item.title}</span>
           </li>
         ))}

@@ -1,3 +1,12 @@
+.bear-sidebar-icon {
+  /* Keep labels aligned even when icon font glyphs have different advance widths. */
+  display: inline-flex;
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
 .bear .markdown a,
 .bear .markdown .bear-link-text {
   color: inherit;
